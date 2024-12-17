@@ -9,11 +9,11 @@ import lombok.Setter;
 @Setter
 @Data
 @Entity
-@NamedQuery(name="Trova_tutto_Toppings", query="SELECT a FROM Toppings a")
+@NamedQuery(name = "Trova_tutto_Toppings", query = "SELECT a FROM Toppings a")
 public class Toppings {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private  Long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -23,5 +23,9 @@ public class Toppings {
 
     @Column(name = "price")
     private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
 
 }

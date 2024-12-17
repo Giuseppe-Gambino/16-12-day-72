@@ -27,4 +27,8 @@ public class Drinks {
     @Column(name = "price")
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
+
 }

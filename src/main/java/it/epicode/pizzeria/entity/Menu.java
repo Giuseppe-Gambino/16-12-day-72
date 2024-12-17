@@ -19,17 +19,14 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @ElementCollection
-    @Column(name = "pizze")
-    private List<Pizza> pizze = new ArrayList<>();
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    private List<Pizza> pizze;
 
-    @ElementCollection
-    @Column(name = "toppings")
-    private List<Toppings> toppings = new ArrayList<>();
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    private List<Drinks> drinks;
 
-    @ElementCollection
-    @Column(name = "drinks")
-    private List<Drinks> drinks = new ArrayList<>();
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    private List<Toppings> toppings;
 
 
     @Override

@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class AppConfig {
@@ -43,6 +45,15 @@ public class AppConfig {
         return pizza;
     }
 
+    @Bean
+    public List<Pizza> createListaPizze() {
+        List<Pizza> listaPizze = new ArrayList<>();
+        listaPizze.add(createPizzaMargherita());
+        listaPizze.add(createPizzaHawaiian());
+        listaPizze.add(createPizzaSalami());
+        return listaPizze;
+    }
+
 
     @Bean
     public Toppings createCheese() {
@@ -52,6 +63,7 @@ public class AppConfig {
         toppings.setPrice(0.69);
         return toppings;
     }
+
     @Bean
     public Toppings createHam() {
         Toppings toppings = new Toppings();
@@ -60,6 +72,7 @@ public class AppConfig {
         toppings.setPrice(0.99);
         return toppings;
     }
+
     @Bean
     public Toppings createOnions() {
         Toppings toppings = new Toppings();
@@ -85,6 +98,17 @@ public class AppConfig {
         toppings.setCalories(86);
         toppings.setPrice(0.99);
         return toppings;
+    }
+
+    @Bean
+    public List<Toppings> createListaToppings() {
+        List<Toppings> listaToppings = new ArrayList<>();
+        listaToppings.add(createCheese());
+        listaToppings.add(createHam());
+        listaToppings.add(createPineapple());
+        listaToppings.add(createOnions());
+        listaToppings.add(createSalami());
+        return listaToppings;
     }
 
     @Bean
@@ -117,14 +141,23 @@ public class AppConfig {
         return drinks;
     }
 
+    @Bean
+    public List<Drinks> createListaDrinks() {
+        List<Drinks> listaDrinks = new ArrayList<>();
+        listaDrinks.add(createLemonade());
+        listaDrinks.add(createWater());
+        listaDrinks.add(createWine());
+        return listaDrinks;
+    }
+
 
     @Bean
     public Menu createmenu() {
 
         Menu menu = new Menu();
-        menu.setPizze(Arrays.asList(createPizzaMargherita(),createPizzaHawaiian(),createPizzaSalami()));
-        menu.setToppings(Arrays.asList(createCheese(),createHam(),createOnions(),createPineapple(),createSalami()));
-        menu.setDrinks(Arrays.asList(createLemonade(),createWater(),createWine()));
+        menu.setPizze(createListaPizze());
+        menu.setToppings(createListaToppings());
+        menu.setDrinks(createListaDrinks());
         return menu;
     }
 

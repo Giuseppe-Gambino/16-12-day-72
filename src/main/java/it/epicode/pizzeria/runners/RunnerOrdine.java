@@ -21,12 +21,13 @@ import java.util.Arrays;
 
 
 @Component
+@org.springframework.core.annotation.Order(2)
 public class RunnerOrdine implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(RunnerOrdine.class);
 
     private final Menu menu;
-   
+
 
     @Autowired
     public RunnerOrdine(Menu menu) {
