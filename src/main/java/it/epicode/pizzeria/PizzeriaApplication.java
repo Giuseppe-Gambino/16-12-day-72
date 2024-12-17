@@ -1,4 +1,4 @@
-package it.epicode.pizzeria.runners;
+package it.epicode.pizzeria;
 
 import it.epicode.pizzeria.configurations.AppConfig;
 import it.epicode.pizzeria.entity.Menu;
@@ -14,14 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "it.epicode.pizzeria.repo")
 public class PizzeriaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PizzeriaApplication.class, args);
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+    public static void main(String[] args) {
+        SpringApplication.run(PizzeriaApplication.class, args);
 
-		// Recuperiamo il bean Menu
-		Menu menu = context.getBean(Menu.class);
-
-		menu.printMenu();
-	}
+    }
 
 }

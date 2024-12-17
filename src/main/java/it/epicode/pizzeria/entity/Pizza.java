@@ -31,5 +31,4 @@ public class Pizza {
     private String ingredients;
 
 
-
 }
