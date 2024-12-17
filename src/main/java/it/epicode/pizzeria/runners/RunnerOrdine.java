@@ -26,12 +26,12 @@ public class RunnerOrdine implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(RunnerOrdine.class);
 
     private final Menu menu;
-    private final Pizza pizza;
+   
 
     @Autowired
-    public RunnerOrdine(Menu menu, Pizza pizza) {
+    public RunnerOrdine(Menu menu) {
         this.menu = menu;
-        this.pizza = pizza;
+
     }
 
     @Value("${application.coperto}")
