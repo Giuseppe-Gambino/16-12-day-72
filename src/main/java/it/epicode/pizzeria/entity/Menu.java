@@ -19,6 +19,9 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "name")
+    private String name;
+
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
     private List<Pizza> pizze;
 

@@ -50,4 +50,18 @@ public class Order {
     @Column(name = "tot_costo")
     private double totCosto;
 
+    @Override
+    public String toString() {
+        return "\n##### Ordine ######" +
+                "\n id: " + id +
+                "\n pizzas: " + pizzas +
+                "\n toppings: " + toppings +
+                "\n drinks: " + drinks +
+                "\n table: " + table +
+                "\n statoOrdine: " + statoOrdine +
+                "\n numeroCoperti: " + numeroCoperti +
+                "\n oraAquisizione" + oraAquisizione +
+                "\n totCosto: " + totCosto
+                ;
+    }
 }

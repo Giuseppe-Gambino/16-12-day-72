@@ -28,4 +28,15 @@ public class Toppings {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
+
+    @Override
+    public String toString() {
+        return "Toppings{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", calories=" + calories +
+                ", price=" + price +
+                ", menu=" + menu.getId() +
+                '}';
+    }
 }

@@ -55,20 +55,29 @@ public class RunnerDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // Salva le pizze
+        for (Pizza pizza : createListaPizze) {
+            pizza.setMenu(menu);
+        }
         pizzaRepo.saveAll(createListaPizze);
         System.out.println("Pizze salvate nel database!");
 
         // Salva i toppings
+        for (Toppings toppings : createListaToppings) {
+            toppings.setMenu(menu);
+        }
         toppingsRepository.saveAll(createListaToppings);
         System.out.println("Toppings salvati nel database!");
 
 
         // Salva le bevande
+        for (Drinks drinks : createListaDrinks) {
+            drinks.setMenu(menu);
+        }
         drinksRepository.saveAll(createListaDrinks);
         System.out.println("Bevande salvate nel database!");
 
 //         Salva il menu
-        menuRepository.save(menu);
+//        menuRepository.save(menu);
         System.out.println("Menu salvato nel database!");
 
     }

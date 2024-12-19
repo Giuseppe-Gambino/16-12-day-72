@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ToStringExclude;
 
 import java.util.List;
 
@@ -35,4 +36,15 @@ public class Pizza {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", calories=" + calories +
+                ", price=" + price +
+                ", ingredients='" + ingredients + '\'' +
+                ", menu=" + menu.getId() +
+                '}';
+    }
 }

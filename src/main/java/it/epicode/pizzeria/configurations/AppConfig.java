@@ -4,6 +4,8 @@ import it.epicode.pizzeria.entity.Drinks;
 import it.epicode.pizzeria.entity.Menu;
 import it.epicode.pizzeria.entity.Pizza;
 import it.epicode.pizzeria.entity.Toppings;
+import it.epicode.pizzeria.repo.MenuRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +15,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
+@RequiredArgsConstructor
 public class AppConfig {
+    private final MenuRepository menuRepo;
+
 
     @Bean
     public Pizza createPizzaMargherita() {
@@ -155,10 +160,13 @@ public class AppConfig {
     public Menu createmenu() {
 
         Menu menu = new Menu();
+        menu.setName("menu di pino");
         menu.setPizze(createListaPizze());
         menu.setToppings(createListaToppings());
         menu.setDrinks(createListaDrinks());
+        menuRepo.save(menu);
         return menu;
     }
+
 
 }

@@ -31,4 +31,14 @@ public class Drinks {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
+    @Override
+    public String toString() {
+        return "Drinks{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", calories=" + calories +
+                ", quantity='" + quantity + '\'' +
+                ", price=" + price +
+                ", menu=" + menu.getId();
+    }
 }
